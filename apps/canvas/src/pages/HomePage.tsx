@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const BENCHMARKS = [
   { name: 'ZOON', tokens: 6274, color: '#a855f7', isWinner: true },
@@ -35,7 +36,8 @@ const PY_COMMANDS: Record<PyPm, string> = {
   uv: 'uv add zoon-format'
 };
 
-export function HomePage({ setPage }: HomePageProps) {
+export function HomePage() {
+  const navigate = useNavigate();
   const [animatedSavings, setAnimatedSavings] = useState(0);
   const [copied, setCopied] = useState<string | null>(null);
   const [jsPm, setJsPm] = useState<JsPm>('npm');
@@ -64,7 +66,15 @@ export function HomePage({ setPage }: HomePageProps) {
     <main>
       <section className="hero">
         <div className="hero-glow"></div>
-        {/* <div className="badge animate-pulse">bun add @zoon-format/zoon</div> */}
+        <div className="badge animate-pulse" style={{ display: 'inline-flex', gap: '0.5rem', alignItems: 'center' }}>
+          <span style={{ fontSize: '0.9rem' }}>⚡</span>
+          <span>v1.0</span>
+          <span style={{ opacity: 0.5 }}>•</span>
+          <span style={{ color: '#a855f7' }}>TS</span>
+          <span style={{ color: '#3b82f6' }}>Python</span>
+          <span style={{ color: '#00ADD8' }}>Go</span>
+          <span style={{ color: '#DEA584' }}>Rust</span>
+        </div>
         <h1 className="headline animate-slide-up">
           Built for<br />
           <span>the AI Era</span>
