@@ -1,0 +1,1 @@
+C:\Users\Carsen\Documents\ZEP\packages\zoon-rust\target\debug\libzoon.rlib: C:\Users\Carsen\Documents\ZEP\packages\zoon-rust\src\decode.rs C:\Users\Carsen\Documents\ZEP\packages\zoon-rust\src\encode.rs C:\Users\Carsen\Documents\ZEP\packages\zoon-rust\src\lib.rs

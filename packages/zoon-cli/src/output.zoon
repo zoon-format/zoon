@@ -1,0 +1,1 @@
+compilerOptions:{lib:[ESNext] target=ESNext module=ESNext moduleDetection=force jsx=react-jsx allowJs:y moduleResolution=bundler allowImportingTsExtensions:y verbatimModuleSyntax:y noEmit:y strict:y skipLibCheck:y noFallthroughCasesInSwitch:y noUncheckedIndexedAccess:y noImplicitOverride:y noUnusedLocals:n noUnusedParameters:n noPropertyAccessFromIndexSignature:n}

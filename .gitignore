@@ -1,0 +1,29 @@
+# ZOON
+
+# Rust
+packages/zoon-rust/target
+
+# Python
+__pycache__
+
+# Bun
+node_modules
+
+# Node
+package-lock.json
+
+# VSCode
+.vscode
+
+# Other
+.env
+.env.example
+
+# Benchmark
+apps/benchmark/results
+
+# Python
+.pytest_cache
+_pycache_
+.venv
+dist

@@ -1,0 +1,16 @@
+[package]
+name = "zoon"
+version = "1.0.0"
+edition = "2021"
+authors = ["Carsen Klock"]
+description = "ZOON - Zero Overhead Object Notation encoder/decoder"
+license = "MIT"
+repository = "https://github.com/zoon-format/zoon-rust"
+keywords = ["zoon", "json", "serialization", "llm", "token-efficient"]
+categories = ["encoding", "parser-implementations"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dev-dependencies]

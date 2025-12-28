@@ -1,0 +1,11 @@
+{
+  "name": "zoon-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "dependencies": {
+    "bun-types": "latest"
+  }
+}
