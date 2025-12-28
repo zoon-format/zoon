@@ -231,7 +231,7 @@ gateway-2 1837`}</pre>
           <li><code>@zoon-format/cli</code>: Command-line interface</li>
           <li><code>zoon-format</code>: Python bindings (<a href="https://pypi.org/project/zoon-format/" target="_blank" rel="noopener">PyPI</a>)</li>
           <li><code>zoon-go</code>: Go bindings (<a href="https://github.com/zoon-format/zoon-go" target="_blank" rel="noopener">GitHub</a>)</li>
-          <li><code>zoon-rust</code>: Rust bindings (<a href="https://crates.io/crates/zoon-rust" target="_blank" rel="noopener">crates.io</a>)</li>
+          <li><code>zoon-rust</code>: Rust bindings (<a href="https://crates.io/crates/zoon-format" target="_blank" rel="noopener">crates.io</a>)</li>
         </ul>
       </>
     )

@@ -64,7 +64,7 @@ export function HomePage({ setPage }: HomePageProps) {
     <main>
       <section className="hero">
         <div className="hero-glow"></div>
-        <div className="badge animate-pulse">⚡ v1.0 Production Ready</div>
+        {/* <div className="badge animate-pulse">bun add @zoon-format/zoon</div> */}
         <h1 className="headline animate-slide-up">
           Built for<br />
           <span>the AI Era</span>

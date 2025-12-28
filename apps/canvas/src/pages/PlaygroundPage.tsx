@@ -197,7 +197,7 @@ export function PlaygroundPage() {
 
             <div className="ecosystem-item" style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                <strong style={{ color: '#DEA584' }}>zoon-rust</strong>
+                <strong style={{ color: '#DEA584' }}>zoon-format</strong>
                 <span className="token-pill">Rust</span>
               </div>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', margin: 0 }}>Rust crate with serde integration. encode/decode API.</p>
