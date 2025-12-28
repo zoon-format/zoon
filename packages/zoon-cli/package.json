@@ -1,6 +1,6 @@
 {
   "name": "@zoon-format/cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Carsen Klock",
   "description": "Command-line interface for zoon (Zero Overhead Object Notation) format",

@@ -57,7 +57,7 @@ function parseArgs(args: string[]): CliOptions {
 
 function printHelp(): void {
     console.log(`
-ZOON - ZOON (Zero Object Notation) CLI
+ZOON - ZOON (Zero Overhead Object Notation) CLI
 
 Usage:
   ZOON [input] [options]
