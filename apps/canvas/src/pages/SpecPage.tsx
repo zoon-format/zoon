@@ -77,7 +77,7 @@ Bob User 0`}</pre>
   },
   {
     id: 'indexed-enums',
-    title: '4.5 Indexed Enums',
+    title: '5. Indexed Enums',
     content: (
       <>
         <p>When enum values are long or numerous, using numeric indices instead of literal values saves significant tokens.</p>
@@ -98,7 +98,7 @@ Bob User 0`}</pre>
   },
   {
     id: 'aliases',
-    title: '5. Header Aliases',
+    title: '6. Header Aliases',
     content: (
       <>
         <p>For deeply nested objects, repeated path prefixes can be aliased to reduce tokens.</p>
@@ -111,7 +111,7 @@ gateway-2 up 1837 up 1819`}</pre>
   },
   {
     id: 'hoisting',
-    title: '6. Constant Value Hoisting',
+    title: '7. Constant Value Hoisting',
     content: (
       <>
         <p>Fields with identical values across all rows can be hoisted to the header to avoid repetition.</p>
@@ -123,7 +123,7 @@ gateway-2 1837`}</pre>
   },
   {
     id: 'inline',
-    title: '7. Inline Format',
+    title: '8. Inline Format',
     content: (
       <>
         <p>Encodes single objects with nested properties using space-separated key-value pairs.</p>
@@ -135,7 +135,7 @@ gateway-2 1837`}</pre>
   },
   {
     id: 'types',
-    title: '8. Type System',
+    title: '9. Type System',
     content: (
       <table className="spec-table">
         <thead>
@@ -158,7 +158,7 @@ gateway-2 1837`}</pre>
   },
   {
     id: 'encoding',
-    title: '9. Encoding Rules',
+    title: '10. Encoding Rules',
     content: (
       <ul>
         <li><strong>Format Selection:</strong> Tabular for uniform arrays, Inline otherwise.</li>
@@ -170,15 +170,15 @@ gateway-2 1837`}</pre>
   },
   {
     id: 'decoding',
-    title: '10. Decoding Rules',
+    title: '11. Decoding Rules',
     content: (
       <>
-        <h4>10.1 Format Detection</h4>
+        <h4>11.1 Format Detection</h4>
         <ul>
           <li>If first line starts with <code>#</code> → Tabular Format</li>
           <li>Otherwise → Inline Format</li>
         </ul>
-        <h4>10.2 Token Parsing</h4>
+        <h4>11.2 Token Parsing</h4>
         <ul>
           <li><code>true</code>/<code>false</code> (or <code>1</code>/<code>0</code> in typed cols) → boolean</li>
           <li><code>y</code>/<code>n</code> → boolean (inline)</li>
@@ -191,7 +191,7 @@ gateway-2 1837`}</pre>
   },
   {
     id: 'conformance',
-    title: '11. Conformance',
+    title: '12. Conformance',
     content: (
       <>
         <p>Conformant encoders MUST produce valid UTF-8, use LF, and preserve order. Decoders MUST accept both formats and handle all type markers.</p>
@@ -200,7 +200,7 @@ gateway-2 1837`}</pre>
   },
   {
     id: 'security',
-    title: '12. Security Considerations',
+    title: '13. Security Considerations',
     content: (
       <ul>
         <li>String escaping rules prevent injection attacks</li>
@@ -211,7 +211,7 @@ gateway-2 1837`}</pre>
   },
   {
     id: 'comparison',
-    title: '13. Comparison with Other Formats',
+    title: '14. Comparison with Other Formats',
     content: (
       <table className="spec-table">
         <thead>

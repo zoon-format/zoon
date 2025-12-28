@@ -27,17 +27,18 @@ This specification defines ZOON's concrete syntax, type system, encoding rules, 
 2. [Terminology](#2-terminology)
 3. [Data Model](#3-data-model)
 4. [Tabular Format](#4-tabular-format)
-5. [Header Aliases](#5-header-aliases)
-6. [Constant Value Hoisting](#6-constant-value-hoisting)
-7. [Inline Format](#7-inline-format)
-8. [Type System](#8-type-system)
-9. [Encoding Rules](#9-encoding-rules)
-10. [Decoding Rules](#10-decoding-rules)
-11. [Conformance](#11-conformance)
-12. [Security Considerations](#12-security-considerations)
-13. [Comparison with Other Formats](#13-comparison-with-other-formats)
-14. [IANA Considerations](#14-iana-considerations)
-15. [Reference Implementations](#15-reference-implementations)
+5. [Indexed Enums](#5-indexed-enums)
+6. [Header Aliases](#6-header-aliases)
+7. [Constant Value Hoisting](#7-constant-value-hoisting)
+8. [Inline Format](#8-inline-format)
+9. [Type System](#9-type-system)
+10. [Encoding Rules](#10-encoding-rules)
+11. [Decoding Rules](#11-decoding-rules)
+12. [Conformance](#12-conformance)
+13. [Security Considerations](#13-security-considerations)
+14. [Comparison with Other Formats](#14-comparison-with-other-formats)
+15. [IANA Considerations](#15-iana-considerations)
+16. [Reference Implementations](#16-reference-implementations)
 
 ---
 
@@ -183,7 +184,7 @@ An array MUST use Tabular format when ALL of:
 | `i+` | Auto-Increment | Sequential ID starting at 1, omitted from body          |
 | `a`  | Array          | Encoded as `[val1,val2,...]`                            |
 
-### 4.5 Indexed Enums
+## 5. Indexed Enums
 
 When enum values are long or numerous, using numeric indices instead of literal values saves significant tokens.
 
@@ -231,7 +232,7 @@ Encoders SHOULD use indexed mode when:
 - Map numeric indices (0, 1, 2...) to option values
 - Invalid indices MUST produce an error
 
-## 5. Header Aliases
+## 6. Header Aliases
 
 For deeply nested objects, repeated path prefixes can be aliased to reduce tokens.
 
@@ -258,7 +259,7 @@ gateway-2 up 1837 up 1819
 - Field references use `%alias.suffix` notation
 - Decoders MUST expand aliases before processing
 
-## 6. Constant Value Hoisting
+## 7. Constant Value Hoisting
 
 Fields with identical values across all rows can be hoisted to the header to avoid repetition.
 
@@ -285,7 +286,7 @@ gateway-3 1833
 - Hoisted fields are omitted from data rows
 - Decoders MUST inject hoisted values into each decoded object
 
-## 7. Inline Format
+## 8. Inline Format
 
 The Inline format encodes single objects with nested properties.
 
@@ -297,7 +298,7 @@ Space-separated key-value pairs on a single line:
 key:value key=string key:{nested}
 ```
 
-### 7.2 Syntax
+### 8.2 Syntax
 
 | Pattern     | Type          | Example                         |
 | ----------- | ------------- | ------------------------------- |
@@ -309,7 +310,7 @@ key:value key=string key:{nested}
 | `key:[a,b]` | Array         | `tags:[web,api]`                |
 | `key:{...}` | Nested Object | `db:{host=localhost port:5432}` |
 
-### 7.3 Nesting
+### 8.3 Nesting
 
 Objects are nested using curly braces `{...}`:
 
@@ -326,16 +327,16 @@ Decodes to:
 }
 ```
 
-### 7.4 String Escaping
+### 8.4 String Escaping
 
 - Spaces in strings MUST be replaced with underscores
 - Underscores in output are converted back to spaces on decode
 
 ---
 
-## 8. Type System
+## 9. Type System
 
-### 8.1 Strings
+### 9.1 Strings
 
 **Encoding:**
 
@@ -348,7 +349,7 @@ Decodes to:
 - Replace underscores with spaces
 - Tokens after `=` are always strings
 
-### 8.2 Numbers
+### 9.2 Numbers
 
 **Encoding:**
 
@@ -361,7 +362,7 @@ Decodes to:
 - Tokens matching `/^-?\d+(\.\d+)?$/` are numbers
 - All other tokens after `:` follow type inference rules
 
-### 8.3 Booleans
+### 9.3 Booleans
 
 **Tabular Format:**
 
@@ -371,11 +372,11 @@ Decodes to:
 
 - `y` = true, `n` = false
 
-### 8.4 Null
+### 9.4 Null
 
 - Represented as `~` in both formats
 
-### 8.5 Arrays
+### 9.5 Arrays
 
 **In Tabular fields:**
 
@@ -389,16 +390,16 @@ Decodes to:
 
 ---
 
-## 9. Encoding Rules
+## 10. Encoding Rules
 
-### 9.1 Format Selection
+### 10.1 Format Selection
 
 Encoders MUST:
 
 1. If input is an array of uniform objects with primitive values → Tabular Format
 2. Otherwise → Inline Format
 
-### 9.2 Enum Detection
+### 10.2 Enum Detection
 
 Encoders SHOULD detect enums when:
 
@@ -407,11 +408,11 @@ Encoders SHOULD detect enums when:
 
 Detected enums are encoded as `field=val1|val2|...` in header.
 
-### 9.3 Key Ordering
+### 10.3 Key Ordering
 
 Object keys MUST be emitted in encounter order.
 
-### 9.4 Whitespace
+### 10.4 Whitespace
 
 - No trailing spaces on any line
 - No trailing newline at end of document
@@ -419,14 +420,14 @@ Object keys MUST be emitted in encounter order.
 
 ---
 
-## 10. Decoding Rules
+## 11. Decoding Rules
 
-### 10.1 Format Detection
+### 11.1 Format Detection
 
 - If first line starts with `#` → Tabular Format
 - Otherwise → Inline Format
 
-### 10.2 Token Parsing
+### 11.2 Token Parsing
 
 For unquoted tokens:
 
@@ -437,7 +438,7 @@ For unquoted tokens:
 5. Numeric pattern → number
 6. Everything else → string (with `_` → space)
 
-### 10.3 Type Inference
+### 11.3 Type Inference
 
 Decoders MUST use the header types in Tabular format.
 In Inline format, decoders infer types from separator:
@@ -447,9 +448,9 @@ In Inline format, decoders infer types from separator:
 
 ---
 
-## 11. Conformance
+## 12. Conformance
 
-### 11.1 Encoder Requirements
+### 12.1 Encoder Requirements
 
 Conformant encoders MUST:
 
@@ -461,7 +462,7 @@ Conformant encoders MUST:
 - [ ] Detect and encode enums
 - [ ] Emit canonical number form
 
-### 11.2 Decoder Requirements
+### 12.2 Decoder Requirements
 
 Conformant decoders MUST:
 
@@ -474,7 +475,7 @@ Conformant decoders MUST:
 
 ---
 
-## 12. Security Considerations
+## 13. Security Considerations
 
 - String escaping rules prevent injection attacks
 - Encoders SHOULD limit input size to prevent memory exhaustion
@@ -482,9 +483,9 @@ Conformant decoders MUST:
 
 ---
 
-## 13. Comparison with Other Formats
+## 14. Comparison with Other Formats
 
-### 13.1 ZOON vs JSON
+### 14.1 ZOON vs JSON
 
 | Feature            | JSON                       | ZOON             |
 | ------------------ | -------------------------- | ---------------- |
@@ -492,7 +493,7 @@ Conformant decoders MUST:
 | Boolean tokens     | `true`/`false` (4-5 chars) | `1`/`0` (1 char) |
 | Auto-increment IDs | Explicit                   | Implicit `i+`    |
 
-### 13.2 ZOON vs TOON
+### 14.2 ZOON vs TOON
 
 | Feature             | TOON           | ZOON              |
 | ------------------- | -------------- | ----------------- |
@@ -504,7 +505,7 @@ Conformant decoders MUST:
 | Smart enums         | ❌             | ✅ Header types   |
 | Token efficiency    | Good           | Better            |
 
-### 13.3 Typical Savings
+### 14.3 Typical Savings
 
 | Dataset             | JSON    | TOON    | ZOON    | vs JSON | vs TOON |
 | ------------------- | ------- | ------- | ------- | ------- | ------- |
@@ -515,9 +516,9 @@ Conformant decoders MUST:
 
 ---
 
-## 14. IANA Considerations
+## 15. IANA Considerations
 
-### 14.1 Media Type (Provisional)
+### 15.1 Media Type (Provisional)
 
 - **Type name:** text
 - **Subtype name:** ZOON (provisional)
@@ -527,9 +528,9 @@ Conformant decoders MUST:
 
 ---
 
-## 15. Reference Implementations
+## 16. Reference Implementations
 
-### 15.1 Packages
+### 16.1 Packages
 
 | Package               | Description                                |
 | --------------------- | ------------------------------------------ |
@@ -537,7 +538,7 @@ Conformant decoders MUST:
 | `@zoon-format/cli`    | Command-line interface                     |
 | `@zoon-format/python` | Python bindings                            |
 
-### 15.2 CLI Usage
+### 16.2 CLI Usage
 
 ```bash
 # Encode JSON to ZOON
@@ -553,7 +554,7 @@ ZOON data.json --stats
 cat data.json | ZOON > output.ZOON
 ```
 
-### 15.3 Programmatic Usage
+### 16.3 Programmatic Usage
 
 ```typescript
 import { encode, decode, ZOON } from "@zoon-format/zoon";
