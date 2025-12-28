@@ -206,30 +206,73 @@ export function PlaygroundPage() {
         </div>
         
         <div className="glass-panel" style={{ padding: '2rem' }}>
-          <h3 style={{ fontSize: '1.2rem', marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
+          <h3 style={{ fontSize: '1.2rem', marginBottom: '1.5rem', display: 'flex', alignItems: 'center' }}>
             <span style={{ marginRight: '0.5rem' }}>🚀</span> Integration Guide
           </h3>
-          <div style={{ background: '#0f111a', padding: '1.25rem', borderRadius: '8px', fontFamily: 'monospace', fontSize: '0.85rem', overflowX: 'auto' }}>
-            <div style={{ color: '#64748b', marginBottom: '0.5rem' }}>// 1. TypeScript / Node.js</div>
-            <div style={{ color: '#e2e8f0' }}>import {'{'} encode {'}'} from '@zoon-format/zoon';</div>
-            <div style={{ color: '#e2e8f0', marginTop: '0.25rem' }}>const encoded = encode(data);</div>
-            
-            <div style={{ color: '#64748b', margin: '1.2rem 0 0.5rem' }}># 2. Python</div>
-            <div style={{ color: '#e2e8f0' }}>import zoon</div>
-            <div style={{ color: '#e2e8f0', marginTop: '0.25rem' }}>encoded = zoon.encode(data)</div>
-
-            <div style={{ color: '#64748b', margin: '1.2rem 0 0.5rem' }}>// 3. Go</div>
-            <div style={{ color: '#e2e8f0' }}>import "github.com/zoon-format/zoon-go"</div>
-            <div style={{ color: '#e2e8f0', marginTop: '0.25rem' }}>encoded, _ := zoon.Marshal(data)</div>
-
-            <div style={{ color: '#64748b', margin: '1.2rem 0 0.5rem' }}>// 4. Rust</div>
-            <div style={{ color: '#e2e8f0' }}>use zoon::encode;</div>
-            <div style={{ color: '#e2e8f0', marginTop: '0.25rem' }}>let encoded = encode(&data)?;</div>
-
-            <div style={{ color: '#64748b', margin: '1.2rem 0 0.5rem' }}># 5. CLI Pipeline</div>
-            <div style={{ color: '#a855f7' }}>$ cat large-log.json | zoon {'>'} compressed.zoon</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ background: '#0d0d1a', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div style={{ background: 'rgba(168,85,247,0.1)', padding: '0.5rem 1rem', fontSize: '0.75rem', fontWeight: 600, color: '#a855f7', textTransform: 'uppercase', letterSpacing: '0.05em' }}>TypeScript / JavaScript</div>
+              <pre style={{ margin: 0, padding: '1rem', fontSize: '0.85rem', fontFamily: "'JetBrains Mono', monospace", overflowX: 'auto' }}>
+                <code>
+                  <span style={{ color: '#c586c0' }}>import</span>{' '}
+                  <span style={{ color: '#9cdcfe' }}>{'{ Zoon }'}</span>{' '}
+                  <span style={{ color: '#c586c0' }}>from</span>{' '}
+                  <span style={{ color: '#ce9178' }}>'@zoon-format/zoon'</span>;{'\n\n'}
+                  <span style={{ color: '#569cd6' }}>const</span>{' '}
+                  <span style={{ color: '#4fc1ff' }}>encoded</span> = <span style={{ color: '#dcdcaa' }}>Zoon.encode</span>(<span style={{ color: '#9cdcfe' }}>data</span>);{'\n'}
+                  <span style={{ color: '#569cd6' }}>const</span>{' '}
+                  <span style={{ color: '#4fc1ff' }}>decoded</span> = <span style={{ color: '#dcdcaa' }}>Zoon.decode</span>(<span style={{ color: '#9cdcfe' }}>encoded</span>);
+                </code>
+              </pre>
+            </div>
+            <div style={{ background: '#0d0d1a', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div style={{ background: 'rgba(59,130,246,0.1)', padding: '0.5rem 1rem', fontSize: '0.75rem', fontWeight: 600, color: '#3b82f6', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Python</div>
+              <pre style={{ margin: 0, padding: '1rem', fontSize: '0.85rem', fontFamily: "'JetBrains Mono', monospace", overflowX: 'auto' }}>
+                <code>
+                  <span style={{ color: '#c586c0' }}>import</span>{' '}
+                  <span style={{ color: '#4ec9b0' }}>zoon</span>{'\n\n'}
+                  <span style={{ color: '#9cdcfe' }}>encoded</span> = <span style={{ color: '#4ec9b0' }}>zoon</span>.<span style={{ color: '#dcdcaa' }}>encode</span>(<span style={{ color: '#9cdcfe' }}>data</span>){'\n'}
+                  <span style={{ color: '#9cdcfe' }}>decoded</span> = <span style={{ color: '#4ec9b0' }}>zoon</span>.<span style={{ color: '#dcdcaa' }}>decode</span>(<span style={{ color: '#9cdcfe' }}>encoded</span>)
+                </code>
+              </pre>
+            </div>
+            <div style={{ background: '#0d0d1a', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div style={{ background: 'rgba(0,173,216,0.1)', padding: '0.5rem 1rem', fontSize: '0.75rem', fontWeight: 600, color: '#00ADD8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Go</div>
+              <pre style={{ margin: 0, padding: '1rem', fontSize: '0.85rem', fontFamily: "'JetBrains Mono', monospace", overflowX: 'auto' }}>
+                <code>
+                  <span style={{ color: '#c586c0' }}>import</span>{' '}
+                  <span style={{ color: '#ce9178' }}>"github.com/zoon-format/zoon-go"</span>{'\n\n'}
+                  <span style={{ color: '#9cdcfe' }}>encoded</span>, _ := <span style={{ color: '#4ec9b0' }}>zoon</span>.<span style={{ color: '#dcdcaa' }}>Marshal</span>(<span style={{ color: '#9cdcfe' }}>data</span>){'\n'}
+                  <span style={{ color: '#9cdcfe' }}>decoded</span>, _ := <span style={{ color: '#4ec9b0' }}>zoon</span>.<span style={{ color: '#dcdcaa' }}>Unmarshal</span>(<span style={{ color: '#9cdcfe' }}>encoded</span>)
+                </code>
+              </pre>
+            </div>
+            <div style={{ background: '#0d0d1a', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div style={{ background: 'rgba(222,165,132,0.1)', padding: '0.5rem 1rem', fontSize: '0.75rem', fontWeight: 600, color: '#DEA584', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Rust</div>
+              <pre style={{ margin: 0, padding: '1rem', fontSize: '0.85rem', fontFamily: "'JetBrains Mono', monospace", overflowX: 'auto' }}>
+                <code>
+                  <span style={{ color: '#c586c0' }}>use</span>{' '}
+                  <span style={{ color: '#4ec9b0' }}>zoon_format</span>::{'{'}<span style={{ color: '#dcdcaa' }}>encode</span>, <span style={{ color: '#dcdcaa' }}>decode</span>{'}'};{'\n\n'}
+                  <span style={{ color: '#569cd6' }}>let</span>{' '}
+                  <span style={{ color: '#9cdcfe' }}>encoded</span> = <span style={{ color: '#dcdcaa' }}>encode</span>(&<span style={{ color: '#9cdcfe' }}>data</span>)?;{'\n'}
+                  <span style={{ color: '#569cd6' }}>let</span>{' '}
+                  <span style={{ color: '#9cdcfe' }}>decoded</span> = <span style={{ color: '#dcdcaa' }}>decode</span>(&<span style={{ color: '#9cdcfe' }}>encoded</span>)?;
+                </code>
+              </pre>
+            </div>
+            <div style={{ background: '#0d0d1a', borderRadius: '8px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <div style={{ background: 'rgba(168,85,247,0.1)', padding: '0.5rem 1rem', fontSize: '0.75rem', fontWeight: 600, color: '#a855f7', textTransform: 'uppercase', letterSpacing: '0.05em' }}>CLI Pipeline</div>
+              <pre style={{ margin: 0, padding: '1rem', fontSize: '0.85rem', fontFamily: "'JetBrains Mono', monospace", overflowX: 'auto' }}>
+                <code>
+                  <span style={{ color: '#6a9955' }}># Encode JSON to ZOON</span>{'\n'}
+                  <span style={{ color: '#dcdcaa' }}>cat</span> data.json | <span style={{ color: '#a855f7' }}>zoon</span> {'>'} data.zoon{'\n\n'}
+                  <span style={{ color: '#6a9955' }}># Decode ZOON back to JSON</span>{'\n'}
+                  <span style={{ color: '#dcdcaa' }}>cat</span> data.zoon | <span style={{ color: '#a855f7' }}>zoon</span> -d {'>'} data.json
+                </code>
+              </pre>
+            </div>
           </div>
-          <div style={{ marginTop: '1rem', fontSize: '0.85rem', color: 'var(--text-dim)' }}>
+          <div style={{ marginTop: '1.5rem', fontSize: '0.85rem', color: 'var(--text-dim)', padding: '1rem', background: 'rgba(168,85,247,0.05)', borderRadius: '8px', border: '1px solid rgba(168,85,247,0.1)' }}>
             💡 <strong>Pro Tip:</strong> ZOON detects structure automatically. No schemas required.
           </div>
         </div>

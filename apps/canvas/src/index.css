@@ -76,6 +76,7 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: color 0.2s;
+  text-decoration: none;
 }
 .nav-item:hover, .nav-item.active { color: var(--text); }
 .nav-item.active { text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
