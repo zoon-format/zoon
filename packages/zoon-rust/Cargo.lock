@@ -99,7 +99,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e6d6085d62852e35540689d1f97ad663e3971fc19cf5eceab364d62c646ea167"
 
 [[package]]
-name = "zoon"
+name = "zoon-format"
 version = "1.0.0"
 dependencies = [
  "serde",
