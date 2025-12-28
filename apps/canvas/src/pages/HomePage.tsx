@@ -21,10 +21,6 @@ const USE_CASES = [
   { title: 'Cost Optimization', desc: 'Cut API costs by up to 60%', icon: '💰' },
 ];
 
-interface HomePageProps {
-    setPage: (page: 'home' | 'playground' | 'spec') => void;
-}
-
 type JsPm = 'npm' | 'bun' | 'yarn';
 type PyPm = 'pip' | 'uv';
 
@@ -78,10 +74,10 @@ export function HomePage({ setPage }: HomePageProps) {
           ZOON delivers <strong>up to {animatedSavings}% reduction</strong> while maintaining perfect accuracy.
         </p>
         <div className="cta-group animate-fade-in">
-          <button className="btn btn-primary" onClick={() => setPage('playground')}>
+          <button className="btn btn-primary" onClick={() => navigate('/playground')}>
             🚀 Try Playground
           </button>
-          <button className="btn btn-secondary" onClick={() => setPage('spec')}>
+          <button className="btn btn-secondary" onClick={() => navigate('/spec')}>
             📄 Read Specification
           </button>
         </div>

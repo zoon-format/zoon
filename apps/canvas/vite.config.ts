@@ -6,7 +6,8 @@ export default defineConfig({
     plugins: [react()],
     // root: '.', // Defaults to current dir
     build: {
-        outDir: '../dist',
+        outDir: 'dist',
+        target: 'esnext',
     },
     server: {
         proxy: {

@@ -27,3 +27,4 @@ apps/benchmark/results
 _pycache_
 .venv
 dist
+server-dist

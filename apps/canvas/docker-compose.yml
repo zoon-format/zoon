@@ -1,0 +1,6 @@
+services:
+  zoon-canvas:
+    build: .
+    ports:
+      - "6789:6789"
+    restart: always
