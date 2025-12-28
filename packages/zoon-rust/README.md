@@ -11,7 +11,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-zoon = "1.0"
+zoon-format = "1.0"
 ```
 
 ## Usage
