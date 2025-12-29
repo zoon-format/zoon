@@ -219,12 +219,17 @@
   line-height: 1.6;
   color: #e2e8f0;
   background: #0f111a !important;
+  text-indent: 0; /* Reset indentation */
 }
 
 .docs-code-block pre code {
   background: transparent !important;
   font-family: inherit;
   font-size: inherit;
+  padding: 0 !important;      /* Remove Prism padding */
+  margin: 0 !important;       /* Remove Prism margin */
+  text-indent: 0 !important;  /* Remove Prism indent */
+  float: none !important;     /* Prevent float issues */
 }
 
 pre[class*="language-"],
