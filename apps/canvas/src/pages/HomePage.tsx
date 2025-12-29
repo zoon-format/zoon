@@ -123,22 +123,22 @@ export function HomePage() {
             like <strong>auto-increment IDs</strong>, <strong>enum indexing</strong>, and <strong>constant hoisting</strong> to achieve 
             maximum compression while remaining human-readable and fully lossless.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', maxWidth: '900px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'left', padding: '1rem', background: 'rgba(168, 85, 247, 0.05)', borderRadius: '8px' }}>
+          <div className="features-grid-3" style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <div className="feature-item">
               <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>🎯</div>
               <strong style={{ color: 'var(--accent)' }}>Purpose-Built</strong>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', marginTop: '0.5rem' }}>
                 Optimized for BPE tokenizers used by GPT, Claude, Gemini, and other LLMs.
               </p>
             </div>
-            <div style={{ textAlign: 'left', padding: '1rem', background: 'rgba(168, 85, 247, 0.05)', borderRadius: '8px' }}>
+            <div className="feature-item">
               <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>🔄</div>
               <strong style={{ color: 'var(--accent)' }}>Lossless</strong>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', marginTop: '0.5rem' }}>
                 100% round-trip fidelity. Every JSON document encodes and decodes exactly.
               </p>
             </div>
-            <div style={{ textAlign: 'left', padding: '1rem', background: 'rgba(168, 85, 247, 0.05)', borderRadius: '8px' }}>
+            <div className="feature-item">
               <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>📖</div>
               <strong style={{ color: 'var(--accent)' }}>Readable</strong>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-dim)', marginTop: '0.5rem' }}>

@@ -440,9 +440,47 @@ code[class*="language-"] {
 @media (max-width: 900px) {
   .docs-container {
     grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
   }
   
   .docs-sidebar {
     position: static;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .docs-nav {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .docs-nav-item {
+    white-space: nowrap;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .docs-content {
+    padding: 1.25rem;
+  }
+
+  .docs-section h1 {
+    font-size: 1.75rem;
+  }
+
+  .docs-section h2 {
+    font-size: 1.25rem;
+  }
+  
+  .docs-content-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
   }
 }

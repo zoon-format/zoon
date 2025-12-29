@@ -137,23 +137,25 @@ gateway-2 1837`}</pre>
     id: 'types',
     title: '9. Type System',
     content: (
-      <table className="spec-table">
-        <thead>
-          <tr>
-            <th>Code</th>
-            <th>Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>s</td><td>String</td><td>Text value, spaces replaced with _</td></tr>
-          <tr><td>i</td><td>Integer</td><td>Whole number</td></tr>
-          <tr><td>b</td><td>Boolean</td><td>1/0 (tabular) or y/n (inline)</td></tr>
-          <tr><td>e</td><td>Enum</td><td>Defined via name=val1|val2, encoded as literal value</td></tr>
-          <tr><td>i+</td><td>Auto-Inc</td><td>Sequential ID starting at 1, omitted from body</td></tr>
-          <tr><td>a</td><td>Array</td><td>Encoded as [val1,val2,...]</td></tr>
-        </tbody>
-      </table>
+      <div className="spec-table-wrapper">
+        <table className="spec-table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>s</td><td>String</td><td>Text value, spaces replaced with _</td></tr>
+            <tr><td>i</td><td>Integer</td><td>Whole number</td></tr>
+            <tr><td>b</td><td>Boolean</td><td>1/0 (tabular) or y/n (inline)</td></tr>
+            <tr><td>e</td><td>Enum</td><td>Defined via name=val1|val2, encoded as literal value</td></tr>
+            <tr><td>i+</td><td>Auto-Inc</td><td>Sequential ID starting at 1, omitted from body</td></tr>
+            <tr><td>a</td><td>Array</td><td>Encoded as [val1,val2,...]</td></tr>
+          </tbody>
+        </table>
+      </div>
     )
   },
   {
@@ -213,21 +215,23 @@ gateway-2 1837`}</pre>
     id: 'comparison',
     title: '14. Comparison with Other Formats',
     content: (
-      <table className="spec-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>JSON</th>
-            <th>ZOON</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Key repetition</td><td>Every object</td><td>Once in header</td></tr>
-          <tr><td>Boolean tokens</td><td>true/false (4-5 chars)</td><td>1/0 (1 char)</td></tr>
-          <tr><td>Auto-increment</td><td>Explicit</td><td>Implicit i+</td></tr>
-          <tr><td>Type Safety</td><td>None</td><td>Header schema</td></tr>
-        </tbody>
-      </table>
+      <div className="spec-table-wrapper">
+        <table className="spec-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>JSON</th>
+              <th>ZOON</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Key repetition</td><td>Every object</td><td>Once in header</td></tr>
+            <tr><td>Boolean tokens</td><td>true/false (4-5 chars)</td><td>1/0 (1 char)</td></tr>
+            <tr><td>Auto-increment</td><td>Explicit</td><td>Implicit i+</td></tr>
+            <tr><td>Type Safety</td><td>None</td><td>Header schema</td></tr>
+          </tbody>
+        </table>
+      </div>
     )
   },
   {
