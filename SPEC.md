@@ -1,7 +1,7 @@
 # Zero Overhead Object Notation (ZOON) Specification v1.0
 
 **Status:** Stable  
-**Version:** 1.0.0  
+**Version:** 1.0.3  
 **Date:** 2025-12-27  
 **Author:** Carsen Klock  
 **License:** MIT
@@ -533,11 +533,13 @@ Conformant decoders MUST:
 
 ### 16.1 Packages
 
-| Package               | Description                                |
-| --------------------- | ------------------------------------------ |
-| `@zoon-format/zoon`   | Core TypeScript library with encode/decode |
-| `@zoon-format/cli`    | Command-line interface                     |
-| `@zoon-format/python` | Python bindings                            |
+| Package                  | Description                                |
+| ------------------------ | ------------------------------------------ |
+| `@zoon-format/zoon`      | Core TypeScript library with encode/decode |
+| `@zoon-format/cli`       | Command-line interface                     |
+| `@zoon-format/python`    | Python bindings                            |
+| `@zoon-format/zoon-go`   | Go module                                  |
+| `@zoon-format/zoon-rust` | Rust crate                                 |
 
 ### 16.2 CLI Usage
 
@@ -635,6 +637,11 @@ name=My_App version=1.0.0 scripts:{dev=vite build=tsc} dependencies:{react=^18.0
 ---
 
 ## Appendix B: Changelog
+
+### v1.0.3 (2025-12-28)
+
+- SPEC updated
+- Added `t` type
 
 ### v1.0.0 (2025-12-27)
 
